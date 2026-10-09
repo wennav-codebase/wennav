@@ -8,7 +8,7 @@ export default function Home() {
   useEffect(()=>{
     setTimeout(()=>{
       setLoading(false)
-    } , 2000)
+    } , 3000)
   } , [])
   if (loading) {
     return <Loading />
@@ -28,7 +28,7 @@ export default function Home() {
       animate = {{opacity: 1, y: 0}}
       transition = {{duration: 0.5}}
       className="flex flex-col self-center items-center gap-y-2" >
-        <h1 className="font-heading text-6xl font-bold italic text-secondary uppercase">Coming <span className="text-accent">Soon!!</span>
+        <h1 className="font-heading text-6xl font-bold italic text-secondary uppercase">Coming <span className="text-accent">Soon!</span>
         </h1>
         <p className="font-text text-secondary text-xl">Your Problem’s Solution Is Almost Here :)</p>
       </motion.div>
