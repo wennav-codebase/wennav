@@ -15,7 +15,7 @@ export default function Home() {
   }
   return (
     <section className="
-    hero-bg  flex flex-col items-start justify-between h-screen">
+    hero-bg  flex flex-col items-start justify-between h-screen max-w-screen">
       <Image
         src="/logo.png"
         alt="Logo"
