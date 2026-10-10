@@ -1,11 +1,18 @@
-import Image from 'next/image'
+import Image from "next/image";
 
 function Loading() {
   return (
-    <div className="flex items-center justify-center relative w-screen max-h-screen ">
-      <Image src="/loading.gif" alt="Logo" fill />
+    <div className="relative h-screen w-screen hero-bg">
+      <Image
+        src="/loading.gif"
+        alt="Loading"
+        fill
+        className="object-contain"
+        priority
+        unoptimized
+      />
     </div>
-  )
+  );
 }
 
-export default Loading
+export default Loading;
