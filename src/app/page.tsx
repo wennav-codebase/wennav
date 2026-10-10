@@ -3,6 +3,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import Loading from "@/components/Loading";
 import { motion } from "framer-motion";
+import Typewriter from "@/components/Typewritter";
 export default function Home() {
   const [loading,setLoading] = useState(true)
   useEffect(()=>{
@@ -14,8 +15,10 @@ export default function Home() {
     return <Loading />
   }
   return (
-    <section className="
-    hero-bg  flex flex-col items-start justify-between h-screen max-w-screen">
+    <section
+      className="
+    hero-bg  flex flex-col items-start justify-between h-screen max-w-screen"
+    >
       <Image
         src="/logo.png"
         alt="Logo"
@@ -23,14 +26,23 @@ export default function Home() {
         height={100}
         className="mx-5 mt-2"
       />
-      <motion.div  
-      initial = {{opacity: 0, y: 20}}
-      animate = {{opacity: 1, y: 0}}
-      transition = {{duration: 0.5}}
-      className="flex flex-col self-center items-center gap-y-2" >
-        <h1 className="font-heading text-6xl font-bold italic text-secondary uppercase">Coming <span className="text-accent">Soon!</span>
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="flex flex-col self-center items-center gap-y-2"
+      >
+        <h1 className="font-heading text-6xl font-bold italic text-secondary uppercase">
+          Coming <span className="text-accent">Soon!</span>
         </h1>
-        <p className="font-text text-secondary text-xl">Your Problem’s Solution Is Almost Here :)</p>
+        {/* <p className="font-text text-secondary text-xl">
+           
+        </p> */}
+        <Typewriter
+          forceMotion
+          className="text-secondary font-bold font-text text-xl"
+          text="Your Problem's Solution Is Almost Here"
+        />
       </motion.div>
       <div></div>
     </section>
