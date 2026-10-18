@@ -17,9 +17,9 @@ export default function Home() {
   return (
     <section
       className="
-    hero-bg  flex flex-col items-start justify-between h-screen max-w-screen"
+    hero-bg  flex flex-col items-center justify-center h-screen max-w-screen"
     >
-      {/* <motion.div
+      <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
@@ -33,7 +33,7 @@ export default function Home() {
           className="text-secondary font-text text-xl"
           text="Your Problem's Solution Is Almost Here"
         />
-      </motion.div> */}
+      </motion.div>
       <div></div>
     </section>
   );

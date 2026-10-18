@@ -9,7 +9,7 @@ export default function Navbar() {
     { name: "About Us", href: "/#about" },
   ];
   return (
-    <nav className="flex rounded-full justify-between items-center absolute w-[75%] px-5 py-2.5 bg-[#6B1E85]/25 top-10 left-1/2 -translate-x-1/2 border-[0.5px] border-borderColor/30 shadow-2xl shadow-secondarylight ">
+    <nav className="flex rounded-full justify-between items-center absolute w-[75%] px-5 py-2.5 bg-[#6B1E85]/25 top-10 left-1/2 -translate-x-1/2 border-[0.5px] border-borderColor/30 shadow-2xl shadow-secondarylight">
       {/* Logo */}
       <div>
         <Image src="/logo.png" alt="Logo" width={100} height={100} />
