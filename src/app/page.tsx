@@ -19,14 +19,7 @@ export default function Home() {
       className="
     hero-bg  flex flex-col items-start justify-between h-screen max-w-screen"
     >
-      <Image
-        src="/logo.png"
-        alt="Logo"
-        width={150}
-        height={100}
-        className="mx-5 mt-2"
-      />
-      <motion.div
+      {/* <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
@@ -35,15 +28,12 @@ export default function Home() {
         <h1 className="font-heading text-6xl font-bold italic text-secondary uppercase text-center">
           Coming <span className="text-accent">Soon!</span>
         </h1>
-        {/* <p className="font-text text-secondary text-xl">
-           
-        </p> */}
         <Typewriter
           forceMotion
           className="text-secondary font-text text-xl"
           text="Your Problem's Solution Is Almost Here"
         />
-      </motion.div>
+      </motion.div> */}
       <div></div>
     </section>
   );
