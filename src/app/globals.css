@@ -14,7 +14,8 @@
   --color-secondary: var(--secondary);
   --color-accent: var(--accent);
   --color-primaryLight: var(--primaryLight);
-  --color-secondaryLight: var(--secondaryLight);
+  --color-secondaryLight: #e3e3e3;
+  --color-borderColor: #5A5A5A;
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
   --font-heading: 'Plus Jakarta Sans', sans-serif;
@@ -30,11 +31,11 @@ body {
 
 .hero-bg 
 {
- @apply bg-linear-to-b from-primary to-primaryLight from-50%;
+ @apply bg-radial from-primaryLight to-65%  to-primary ;
 }
 
 body
-{
+{ 
   @apply font-text
 }
 
