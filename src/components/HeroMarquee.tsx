@@ -14,7 +14,7 @@ function HeroMarquee() {
           x: [0, -1000],
         }}
         transition={{
-          duration: 10,
+          duration: 20,
           repeat: Infinity,
           ease: "linear",
         }}

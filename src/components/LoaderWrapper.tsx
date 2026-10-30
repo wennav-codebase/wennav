@@ -12,7 +12,7 @@ export default function LoaderWrapper({ children }: { children: React.ReactNode 
     const timer = setTimeout(() => {
       setLoading(false);
       setIsLoading(false);
-    }, 2000);
+    }, 3000);
 
     return () => clearTimeout(timer);
   }, [setIsLoading]);
