@@ -12,7 +12,7 @@ function ServiceCard({ service , index }: { service: Service , index:number }) {
       initial={{ opacity: 0, x: -120 }}
       whileInView={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.5 }}
-      className="group relative isolate flex w-full flex-col gap-y-5 overflow-hidden rounded-2xl border border-borderColor/50 bg-secondary/50 p-4 text-primary hover:border-borderColor before:absolute before:inset-0 before:-z-10 before:-translate-x-full before:translate-y-full before:rounded-[inherit] before:bg-accent before:transition-transform before:duration-1500 before:ease-in-out hover:before:translate-x-0 hover:before:translate-y-0 hover:cursor-pointer hover:-translate-y-1 transition-all relative"
+      className="group relative isolate flex w-full flex-col gap-y-5 overflow-hidden rounded-2xl border border-accent/15 bg-secondary/50 p-4 text-primary hover:border-borderColor before:absolute before:inset-0 before:-z-10 before:-translate-x-full before:translate-y-full before:rounded-[inherit] before:bg-accent before:transition-transform before:duration-1500 before:ease-in-out hover:before:translate-x-0 hover:before:translate-y-0 hover:cursor-pointer hover:-translate-y-1 transition-all"
     >
       {/* ---------- BASE LAYER (old colors) ---------- */}
       <Image src={service.icon} alt={service.heading} width={50} height={50} />
@@ -37,7 +37,7 @@ function ServiceCard({ service , index }: { service: Service , index:number }) {
           {service.heading}
         </h3>
         <p className="text-base">{service.description}</p>
-        <p className="absolute -bottom-5 right-0 font-bold text-9xl text-secondary/20 ">
+        <p className="absolute -bottom-5 right-0 font-bold text-9xl text-secondary/30 ">
         {index + 1}
       </p>
       </div>

@@ -5,6 +5,7 @@ import Image from "next/image";
 import HeroMarquee from "@/components/HeroMarquee";
 import ServiceCard from "@/components/ServiceCard";
 import { Asterisk } from "lucide-react";
+import ProjectShowcase from "@/components/ProjectShowcase";
 export default function Home() {
   const services = [
     {
@@ -91,9 +92,9 @@ export default function Home() {
         {/* Hero Marquess */}
         <HeroMarquee />
         {/* Service Section */}
-        <section className="bg-primary relative flex flex-col items-center py-20 gap-y-10 justify-center z-30 overflow-hidden">
+        <section className="bg-primary relative flex flex-col items-center py-20 gap-y-10 justify-center z-30 overflow-hidden ">
           <div className="h-120 w-120 bg-primaryLight/60  absolute bottom-0 -right-10 z-10 rounded-full translate-y-[25%] blur-3xl"></div>
-          <h1 className="text-secondary text-5xl font-heading font-bold uppercase">
+          <h1 className="text-secondary text-5xl font-heading font-bold uppercase ">
             Services & Solutions
           </h1>
           {/* Services Cards */}
@@ -104,9 +105,30 @@ export default function Home() {
           </div>
         </section>
         {/* Our Best Work */}
-        <section>
-          
+        <section className="grid grid-cols-1 lg:grid-cols-2 bg-linear-to-b from-primary from-50% to-primaryLight py-10 px-10 items-center relative overflow-hidden isolate  ">
+            <Image src="/backgrounds/service.svg" fill alt="Service" className="absolute inset-0 z-0 object-cover" />
+          {/* Left */}
+          <div className="relative z-10 gap-y-15 flex flex-col items-start">
+            <div className="flex flex-col gap-y-2">
+              <h1 className="text-secondary font-bold text-5xl text-heading">
+                Our Best <span className="text-accent">Work</span>
+              </h1>
+              <p className="text-secondary text-base">
+                A curated collection of digital platforms, high-performance web{" "}
+                <br />
+                applications, and custom ecosystems built for growing brands.
+              </p>
+            </div>
+            <CtaPrimary>View All Projects</CtaPrimary>
+          </div>
+
+          {/* Right */}
+          <div className="relative z-10 w-full">
+            <ProjectShowcase />
+          </div>
         </section>
+        {/* About Us */}
+        <section></section>
       </div>
     </LoaderWrapper>
   );
