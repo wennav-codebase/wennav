@@ -1,0 +1,118 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 760"
+     preserveAspectRatio="xMidYMid slice" role="img" aria-label="Decorative background">
+  <defs>
+    <!-- ============ BASE GRADIENT (primary -> primaryLight) ============ -->
+    <linearGradient id="base" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0"    stop-color="#19071F"/>
+      <stop offset="0.5"  stop-color="#19071F"/>
+      <stop offset="1"    stop-color="#6B1E85"/>
+    </linearGradient>
+
+    <!-- ============ FINE GRID + RADIAL FADE MASK ============ -->
+    <pattern id="grid" width="64" height="64" patternUnits="userSpaceOnUse">
+      <path d="M64 0H0V64" fill="none" stroke="#E3E3E3" stroke-width="1"/>
+    </pattern>
+    <radialGradient id="gridFade" gradientUnits="objectBoundingBox" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0.4" stop-color="#fff"/>
+      <stop offset="1"   stop-color="#fff" stop-opacity="0"/>
+    </radialGradient>
+    <mask id="gridMask" maskUnits="objectBoundingBox"
+          x="-0.2" y="-0.2" width="1.4" height="1.4"
+          maskContentUnits="objectBoundingBox">
+      <ellipse cx="0.5" cy="0.5" rx="0.7" ry="0.6" fill="url(#gridFade)"/>
+    </mask>
+
+    <!-- ============ SOFT GLOWS (gradients, not blurs) ============ -->
+    <radialGradient id="glowRight" gradientUnits="objectBoundingBox" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0"    stop-color="#6B1E85" stop-opacity="0.50"/>
+      <stop offset="0.38" stop-color="#6B1E85" stop-opacity="0.34"/>
+      <stop offset="0.60" stop-color="#6B1E85" stop-opacity="0.12"/>
+      <stop offset="0.74" stop-color="#6B1E85" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowAccent" gradientUnits="objectBoundingBox" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0"    stop-color="#CF4817" stop-opacity="0.25"/>
+      <stop offset="0.45" stop-color="#CF4817" stop-opacity="0.14"/>
+      <stop offset="1"    stop-color="#CF4817" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowViolet" gradientUnits="objectBoundingBox" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0"    stop-color="#6B1E85" stop-opacity="0.25"/>
+      <stop offset="0.45" stop-color="#6B1E85" stop-opacity="0.14"/>
+      <stop offset="1"    stop-color="#6B1E85" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- ============ VIGNETTE ============ -->
+    <radialGradient id="vignette" gradientUnits="objectBoundingBox" cx="0.5" cy="0.5" r="0.7071">
+      <stop offset="0.3" stop-color="#19071F" stop-opacity="0"/>
+      <stop offset="1"   stop-color="#19071F" stop-opacity="1"/>
+    </radialGradient>
+
+    <!-- ============ GRAIN ============ -->
+    <filter id="noise" filterUnits="userSpaceOnUse" x="0" y="0" width="1440" height="760">
+      <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="4" stitchTiles="stitch"/>
+    </filter>
+
+    <!-- ============ DIAGONAL STREAKS ============ -->
+    <linearGradient id="streakAccent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0"   stop-color="#CF4817" stop-opacity="0"/>
+      <stop offset="0.5" stop-color="#CF4817" stop-opacity="0.4"/>
+      <stop offset="1"   stop-color="#CF4817" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="streakLight" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0"   stop-color="#E3E3E3" stop-opacity="0"/>
+      <stop offset="0.5" stop-color="#E3E3E3" stop-opacity="0.2"/>
+      <stop offset="1"   stop-color="#E3E3E3" stop-opacity="0"/>
+    </linearGradient>
+
+    <!-- ============ DOT HALOS ============ -->
+    <radialGradient id="haloAccent" gradientUnits="objectBoundingBox" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0"   stop-color="#CF4817" stop-opacity="0.6"/>
+      <stop offset="0.3" stop-color="#CF4817" stop-opacity="0.25"/>
+      <stop offset="1"   stop-color="#CF4817" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="haloViolet" gradientUnits="objectBoundingBox" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0"   stop-color="#6B1E85" stop-opacity="0.8"/>
+      <stop offset="0.35" stop-color="#6B1E85" stop-opacity="0.3"/>
+      <stop offset="1"   stop-color="#6B1E85" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- 0. base -->
+  <rect width="1440" height="760" fill="url(#base)"/>
+
+  <!-- 1. grid -->
+  <rect width="1440" height="760" fill="url(#grid)" opacity="0.06" mask="url(#gridMask)"/>
+
+  <!-- 2. primaryLight glow, right -->
+  <circle cx="1250" cy="380" r="350" fill="url(#glowRight)"/>
+
+  <!-- 3. accent ember glow, top-right -->
+  <circle cx="1064" cy="64" r="160" fill="url(#glowAccent)"/>
+
+  <!-- 4. violet wash, bottom-left -->
+  <circle cx="122" cy="670" r="250" fill="url(#glowViolet)"/>
+
+  <!-- 5. vignette -->
+  <rect width="1440" height="760" fill="url(#vignette)" opacity="0.6"/>
+
+  <!-- 6. grain -->
+  <rect width="1440" height="760" filter="url(#noise)" opacity="0.12"
+        style="mix-blend-mode:overlay"/>
+
+  <!-- 7. concentric rings -->
+  <circle cx="1068.8" cy="176" r="112" fill="none" stroke="#E3E3E3" stroke-opacity="0.10"/>
+  <circle cx="1107.2" cy="192" r="160" fill="none" stroke="#E3E3E3" stroke-opacity="0.06"/>
+
+  <!-- 8. dots -->
+  <circle cx="118.2"  cy="170.2" r="13" fill="url(#haloAccent)"/>
+  <circle cx="118.2"  cy="170.2" r="3"  fill="#CF4817" opacity="0.7"/>
+  <circle cx="794"    cy="93.2"  r="11" fill="url(#haloViolet)"/>
+  <circle cx="794"    cy="93.2"  r="2"  fill="#6B1E85"/>
+  <circle cx="606.8"  cy="545.2" r="2"  fill="#E3E3E3" opacity="0.6"/>
+  <circle cx="1350.6" cy="497"   r="3"  fill="#E3E3E3" opacity="0.4"/>
+
+  <!-- 9. diagonal streaks -->
+  <rect x="-96"  y="253.33" width="288" height="1" fill="url(#streakAccent)"
+        transform="rotate(45 48 253.83)"/>
+  <rect x="1248" y="569"    width="288" height="1" fill="url(#streakLight)"
+        transform="rotate(-45 1392 569.5)"/>
+</svg>
