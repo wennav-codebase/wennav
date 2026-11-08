@@ -62,11 +62,16 @@ const PROJECTS: Project[] = [
   },
 ];
 
-// ---- Timing (ms) ----
-const INITIAL_DELAY  = 600;   // very first forward step (first play only)
-const FALL_DELAY     = 1100;  // forward step-to-step
-const HOVER_DELAY    = 600;   // initial pause when direction flips (was 2500)
-const REVERSE_DELAY  = 1800;  // ← NEW: reverse step-to-step (slower than forward)
+// ---- Timing (desktop auto-play) ----
+const INITIAL_DELAY = 600;
+const FALL_DELAY = 1100;
+const HOVER_DELAY = 600;
+const REVERSE_DELAY = 1800;
+
+// ---- Mobile swipe ----
+const MOBILE_BREAKPOINT = 768;
+const SWIPE_OFFSET_THRESHOLD = 80; // px
+const SWIPE_VELOCITY_THRESHOLD = 500; // px/s
 
 export default function ProjectShowcase() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -74,61 +79,85 @@ export default function ProjectShowcase() {
   const [isHovered, setIsHovered] = useState<boolean>(false);
   const [activeIndex, setActiveIndex] = useState<number>(0);
 
+  // Lazy init — avoids a false→true flash on mobile that started auto-play for 1 frame.
+  const [isMobile, setIsMobile] = useState<boolean>(() =>
+    typeof window !== "undefined"
+      ? window.matchMedia(`(max-width: ${MOBILE_BREAKPOINT}px)`).matches
+      : false,
+  );
+
   const activeIndexRef = useRef<number>(0);
   const hasPlayedOnce = useRef<boolean>(false);
-
   const total = PROJECTS.length;
 
-  // Keep the ref in sync so the timer chain can read the latest index
-  // without re-creating the effect (which would reset the timer chain).
   useEffect(() => {
     activeIndexRef.current = activeIndex;
   }, [activeIndex]);
 
-useEffect(() => {
-  if (!isInView) return;
+  // Live matchMedia listener for rotation / resize
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const mq = window.matchMedia(`(max-width: ${MOBILE_BREAKPOINT}px)`);
+    const handler = (e: MediaQueryListEvent) => setIsMobile(e.matches);
+    mq.addEventListener("change", handler);
+    return () => mq.removeEventListener("change", handler);
+  }, []);
 
-  let cancelled = false;
-  const timers: ReturnType<typeof setTimeout>[] = [];
+  // Desktop: auto-play + hover reverse. Mobile: pin at card 1, no timer.
+  useEffect(() => {
+    if (!isInView) return;
 
-  const delay = hasPlayedOnce.current ? HOVER_DELAY : INITIAL_DELAY;
-  if (!hasPlayedOnce.current) hasPlayedOnce.current = true;
-
-  const step = () => {
-    if (cancelled) return;
-    const current = activeIndexRef.current;
-
-    if (isHovered) {
-      if (current <= 1) return;
-      setActiveIndex(current - 1);
-    } else {
-      if (current >= total) return;
-      setActiveIndex(current + 1);
+    if (isMobile) {
+      setActiveIndex((v) => Math.max(1, v));
+      return;
     }
 
-    // ★ direction-aware step interval
-    timers.push(setTimeout(step, isHovered ? REVERSE_DELAY : FALL_DELAY));
+    let cancelled = false;
+    const timers: ReturnType<typeof setTimeout>[] = [];
+
+    const delay = hasPlayedOnce.current ? HOVER_DELAY : INITIAL_DELAY;
+    if (!hasPlayedOnce.current) hasPlayedOnce.current = true;
+
+    const step = () => {
+      if (cancelled) return;
+      const current = activeIndexRef.current;
+      if (isHovered) {
+        if (current <= 1) return;
+        setActiveIndex(current - 1);
+      } else {
+        if (current >= total) return;
+        setActiveIndex(current + 1);
+      }
+      timers.push(setTimeout(step, isHovered ? REVERSE_DELAY : FALL_DELAY));
+    };
+
+    timers.push(setTimeout(step, delay));
+
+    return () => {
+      cancelled = true;
+      timers.forEach(clearTimeout);
+    };
+  }, [isHovered, isInView, total, isMobile]);
+
+  // direction = +1 → add a card; -1 → remove a card
+  const handleSwipe = (direction: 1 | -1) => {
+    setActiveIndex((v) => Math.max(1, Math.min(total, v + direction)));
   };
 
-  timers.push(setTimeout(step, delay));
-
-  return () => {
-    cancelled = true;
-    timers.forEach(clearTimeout);
-  };
-}, [isHovered, isInView, total]);
-
-  const displayedCount = Math.max(1, activeIndex); // 0..total — "00" when wound fully back
+  const displayedCount = Math.max(1, activeIndex);
   const progress = activeIndex / total;
 
   return (
     <section
       ref={sectionRef}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-      className="relative h-screen w-full overflow-hidden "
+      onMouseEnter={() => {
+        if (!isMobile) setIsHovered(true);
+      }}
+      onMouseLeave={() => {
+        if (!isMobile) setIsHovered(false);
+      }}
+      className="relative h-screen w-full overflow-hidden"
     >
-      {/* Cards — all absolute, stacked, auto-falling / auto-lifting */}
       <div className="relative h-full w-full -left-10">
         {PROJECTS.map((project, i) => (
           <ProjectCard
@@ -136,11 +165,13 @@ useEffect(() => {
             project={project}
             index={i}
             activeIndex={activeIndex}
+            isMobile={isMobile}
+            onSwipe={handleSwipe}
           />
         ))}
       </div>
 
-      {/* Right rail — counter + progress line */}
+      {/* Right rail */}
       <div className="pointer-events-none absolute right-0 -top-10 hidden h-full w-30 flex-col items-center pt-24 md:flex">
         <div className="flex flex-col items-center">
           <div className="relative flex h-12 items-center justify-center overflow-hidden">
@@ -178,21 +209,33 @@ useEffect(() => {
 }
 
 /* =========================================================
-   Single card  (unchanged from your working version)
+   Single card — now with drag-based swipe on top card
    ========================================================= */
 interface ProjectCardProps {
   project: Project;
   index: number;
   activeIndex: number;
+  isMobile: boolean;
+  onSwipe: (direction: 1 | -1) => void;
 }
 
-function ProjectCard({ project, index, activeIndex }: ProjectCardProps) {
+function ProjectCard({
+  project,
+  index,
+  activeIndex,
+  isMobile,
+  onSwipe,
+}: ProjectCardProps) {
   const linkRef = useRef<HTMLAnchorElement>(null);
   const [hovered, setHovered] = useState<boolean>(false);
 
   const hasFallen = index < activeIndex;
   const depth = activeIndex - 1 - index;
   const targetY = hasFallen ? `-${Math.max(0, depth) * 2}%` : "120%";
+
+  // Only the top card is draggable — and only on mobile.
+  const isTop = index === activeIndex - 1;
+  const draggable = isMobile && isTop;
 
   const mouseX = useMotionValue<number>(0);
   const mouseY = useMotionValue<number>(0);
@@ -222,7 +265,31 @@ function ProjectCard({ project, index, activeIndex }: ProjectCardProps) {
       style={{ zIndex: index + 1 }}
       className="absolute inset-0 flex items-center justify-center px-6 md:px-12 lg:px-16"
     >
-      <div className="w-full max-w-4xl">
+      <motion.div
+        drag={draggable ? "x" : false}
+        dragConstraints={{ left: 0, right: 0 }}
+        dragElastic={0.8}
+        dragSnapToOrigin
+        onDragEnd={(_, info) => {
+          if (!draggable) return;
+          const offset = info.offset.x;
+          const velocity = info.velocity.x;
+
+          if (
+            offset < -SWIPE_OFFSET_THRESHOLD ||
+            velocity < -SWIPE_VELOCITY_THRESHOLD
+          ) {
+            onSwipe(-1); // swipe left → remove
+          } else if (
+            offset > SWIPE_OFFSET_THRESHOLD ||
+            velocity > SWIPE_VELOCITY_THRESHOLD
+          ) {
+            onSwipe(1); // swipe right → add
+          }
+          // else: dragSnapToOrigin springs it back on its own
+        }}
+        className="w-full max-w-4xl"
+      >
         <Link
           ref={linkRef}
           href={`/projects/${project.slug}`}
@@ -285,7 +352,7 @@ function ProjectCard({ project, index, activeIndex }: ProjectCardProps) {
             )}
           </AnimatePresence>
         </Link>
-      </div>
+      </motion.div>
     </motion.div>
   );
 }
