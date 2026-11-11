@@ -6,7 +6,7 @@ import Matter from "matter-js";
 const { Engine, Runner, Bodies, Body, Composite, Constraint, Events, Vector } =
   Matter;
 
-const CAPSULE_H = 36;
+const CAPSULE_H = 48;
 const SPAWN_EVERY_MS = 400;
 const SETTLE_FRAMES = 45;
 const WALL_THICKNESS = 50;

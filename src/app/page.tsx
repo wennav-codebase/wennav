@@ -145,7 +145,7 @@ export default function Home() {
     <LoaderWrapper>
       <div className="flex flex-col max-w-screen overflow-x-hidden">
         {/* Hero Section */}
-        <section className="hero-bg flex flex-col items-center pt-40 pb-10 gap-y-5 relative max-h-270">
+        <section className="hero-bg flex flex-col items-center pt-40 pb-10  relative">
           <Image
             src="/hero/home-bg.jpeg"
             fill
@@ -153,7 +153,7 @@ export default function Home() {
             className="absolute inset-0 z-0 object-cover opacity-20"
           />
 
-          <div className="relative z-10 flex flex-col items-center gap-y-5 w-full">
+          <div className="relative z-10 flex flex-col items-center gap-y-6 w-full">
             <h1 className="font-bold text-6xl text-secondary text-center font-heading leading-16">
               Transforming Ideas Into{" "}
               <span className="text-accent">

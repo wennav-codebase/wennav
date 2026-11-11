@@ -36,13 +36,13 @@ const cards: CardData[] = [
 
 export default function HeroCards() {
   return (
-    <div className="flex w-full gap-4 px-14 mt-5">
+    <div className="flex w-[90%] gap-x-6 gap-y-4 px-14 mt-5">
       {cards.map((card, index) => (
         <motion.div
           key={index}
           className={`
-            relative overflow-hidden rounded-2xl px-8 pt-5 pb-5 flex flex-col items-start justify-center gap-y-4
-            ${card.variant === "accent" ? "bg-accent/60 text-secondary border border-borderColor" : "bg-primary/60 text-secondary border border-borderColor"}
+            relative overflow-hidden rounded-2xl px-8 pt-5 pb-5 flex flex-col items-start justify-between gap-y-4
+            ${card.variant === "accent" ? "bg-accent/60 text-secondary border border-borderColor" : "bg-primary/60 text-secondary border border-borderColor "}
           `}
           style={{ width: card.baseWidth }}
           whileHover={{

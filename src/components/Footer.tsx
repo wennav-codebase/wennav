@@ -1,3 +1,5 @@
+"use client"
+import { useLoading } from "@/contexts/LoadingContext";
 import Link from "next/link";
 
 const mainPages = [
@@ -24,10 +26,14 @@ const socialHandles = [
 ];
 
 export default function Footer() {
+    const { isLoading } = useLoading();
+  
+  if (isLoading) return null;
+  
   return (
     <footer className="bg-primary text-secondary relative overflow-hidden">
       <div className="mx-auto max-w-7xl px-6 py-20 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 lg:gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-y-8 lg:gap-y-12 gap-x-8 lg:gap-x-32  ">
           {/* Left: Mail */}
           <div className="lg:col-span-1">
             <h2 className="text-xl font-heading font-bold mb-6 tracking-tight">
@@ -49,7 +55,7 @@ export default function Footer() {
           </div>
 
           {/* Right: Three link grids */}
-          <div className="lg:col-span-3 grid grid-cols-3 gap-8">
+          <div className="lg:col-span-3 grid grid-cols-3">
             <div>
               <h3 className="text-xs font-heading font-bold uppercase mb-5 tracking-wider text-secondary">
                 Main Pages
