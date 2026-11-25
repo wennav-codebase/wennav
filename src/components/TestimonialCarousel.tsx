@@ -154,7 +154,7 @@ export default function TestimonialCarousel({
               </p>
 
               {/* Client name and service */}
-              <div className="mt-auto text-end self-end">
+              <div className="mt-auto text-end self-end ">
                 <h3 className="font-heading text-lg font-bold uppercase">
                   {t.name}
                 </h3>

@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { motion } from "framer-motion";
 
@@ -36,33 +36,30 @@ const cards: CardData[] = [
 
 export default function HeroCards() {
   return (
-    <div className="flex w-[90%] gap-x-6 gap-y-4 px-14 mt-5">
-      {cards.map((card, index) => (
-        <motion.div
-          key={index}
+    <div className="mt-5 flex w-full flex-col gap-4 px-4 md:w-[90%] md:flex-row md:gap-x-9 md:px-14">
+      {cards.map((card) => (
+        <div
+          key={card.tagline}
+          style={{ "--card-width": card.baseWidth } as React.CSSProperties}
           className={`
-            relative overflow-hidden rounded-2xl px-8 pt-5 pb-5 flex flex-col items-start justify-between gap-y-4
-            ${card.variant === "accent" ? "bg-accent/60 text-secondary border border-borderColor" : "bg-primary/60 text-secondary border border-borderColor "}
+            relative flex w-full flex-col items-start justify-between gap-y-4 overflow-hidden
+            rounded-2xl border border-borderColor px-6 py-5 text-secondary
+            md:w-[var(--card-width)] md:px-8
+            md:transition-[width] md:duration-300 md:ease-in-out md:hover:w-1/2
+            ${card.variant === "accent" ? "bg-accent/60" : "bg-primary/60"}
           `}
-          style={{ width: card.baseWidth }}
-          whileHover={{
-            width: "50%",
-            transition: { duration: 0.3, ease: "easeInOut" },
-          }}
-          initial={{ width: card.baseWidth }}
         >
- 
-          <span className="text-5xl font-bold font-heading mb-2">
+          <span className="font-heading mb-2 text-4xl font-bold md:text-5xl">
             {card.percentage}
           </span>
-          <span className="text-lg font-semibold font-text mb-1">
+          <span className="font-text mb-1 text-lg font-semibold">
             {card.tagline}
           </span>
-   
-          {/* <span className="text-xs font-text opacity-80">
+
+          {/* <span className="font-text text-xs opacity-80">
             {card.description}
           </span> */}
-        </motion.div>
+        </div>
       ))}
     </div>
   );

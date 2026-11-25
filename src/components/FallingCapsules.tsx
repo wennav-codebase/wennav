@@ -102,7 +102,7 @@ export default function FallingCapsules({
       const createCapsule = ({ label, variant }: Spec) => {
         const el = document.createElement("div");
         el.dataset.capsule = "";
-        el.className = `absolute left-0 top-0 flex items-center justify-center whitespace-nowrap rounded-full px-5 text-sm font-semibold shadow-lg pointer-events-auto touch-none select-none cursor-grab active:cursor-grabbing ${variant}`;
+        el.className = `absolute left-0 top-0 flex items-center justify-center whitespace-nowrap rounded-full px-5 text-sm font-semibold shadow-lg pointer-events-auto touch-none select-none cursor-grab active:cursor-grabbing uppercase ${variant}`;
         el.style.height = `${CAPSULE_H}px`;
         el.style.willChange = "transform";
         el.textContent = label;

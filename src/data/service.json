@@ -1,0 +1,515 @@
+{
+  "services": [
+    {
+      "id": "mobile-app-development",
+      "name": "Mobile App Development",
+      "hero": {
+        "heading": "Mobile App\nDevelopment",
+        "description": "Native and cross-platform apps for iOS and Android."
+      },
+      "offerings": [
+        "Native iOS & Android Apps",
+        "Cross-Platform Development",
+        "Mobile UI & UX Design",
+        "API & Payment Integration",
+        "Push Notifications & Analytics",
+        "App Testing & Optimization",
+        "App Store & Play Store Launch",
+        "App Maintenance & Support"
+      ],
+      "steps": [
+        {
+          "number": "01",
+          "title": "Discover & plan",
+          "description": "Define your app goals, audience and essential features."
+        },
+        {
+          "number": "02",
+          "title": "Design the app",
+          "description": "Map user flows and create intuitive mobile screens."
+        },
+        {
+          "number": "03",
+          "title": "Develop & test",
+          "description": "Build the app and test it across devices."
+        },
+        {
+          "number": "04",
+          "title": "Launch & improve",
+          "description": "Publish to app stores and refine with user feedback."
+        }
+      ],
+      "faq": {
+        "description": "A few things to know before we build your mobile app.",
+        "items": [
+          {
+            "question": "Do you build for both iOS and Android?",
+            "answer": "Native and cross-platform development are available. The approach is chosen around your features, device requirements and maintenance needs."
+          },
+          {
+            "question": "Can the app connect to my existing systems?",
+            "answer": "Apps can connect to existing back ends, payment providers and business tools through APIs. Access, compatibility and security are reviewed first."
+          },
+          {
+            "question": "What is involved in publishing an app?",
+            "answer": "Launch planning includes store assets, testing and submission preparation. Developer accounts are required, and approval is controlled by Apple and Google."
+          },
+          {
+            "question": "How are updates and maintenance handled?",
+            "answer": "Support can cover bug fixes, operating-system updates and new features. Coverage, response times and any ongoing costs are agreed separately."
+          }
+        ]
+      },
+      "sharedSections": ["navigation", "projectEnquiry", "footer"]
+    },
+    {
+      "id": "saas-app-development",
+      "name": "SaaS App Development",
+      "hero": {
+        "heading": "SaaS App\nDevelopment",
+        "description": "Scalable cloud software built around your business."
+      },
+      "offerings": [
+        "SaaS Strategy & MVP Planning",
+        "Multi-Tenant Architecture",
+        "Subscription & Billing Systems",
+        "User Roles & Access Control",
+        "Dashboards & Reporting",
+        "Third-Party API Integration",
+        "Cloud Deployment & Scaling",
+        "Ongoing Platform Maintenance"
+      ],
+      "steps": [
+        {
+          "number": "01",
+          "title": "Define the product",
+          "description": "Prioritize user needs, core features and the SaaS roadmap."
+        },
+        {
+          "number": "02",
+          "title": "Design the platform",
+          "description": "Plan user journeys, product screens and architecture."
+        },
+        {
+          "number": "03",
+          "title": "Build & integrate",
+          "description": "Develop the platform, subscriptions and essential integrations."
+        },
+        {
+          "number": "04",
+          "title": "Launch & scale",
+          "description": "Test, release and improve the product as usage grows."
+        }
+      ],
+      "faq": {
+        "description": "A few things to know before we build your SaaS platform.",
+        "items": [
+          {
+            "question": "Can we start with an MVP?",
+            "answer": "An MVP focuses on the essential user journey and core features. Priorities are defined first so the product can be tested before broader investment."
+          },
+          {
+            "question": "Can you add subscriptions and user roles?",
+            "answer": "Subscription billing, account management and role-based access can be included. Plans, permissions and payment-provider requirements are scoped together."
+          },
+          {
+            "question": "How do you plan for growth and data security?",
+            "answer": "Architecture is shaped around expected usage, tenant separation and data sensitivity. Hosting, access controls, backups and monitoring are defined for the project."
+          },
+          {
+            "question": "Can the platform evolve after launch?",
+            "answer": "New features, integrations and performance improvements can be planned in stages. Ongoing maintenance and development are covered by an agreed support scope."
+          }
+        ]
+      },
+      "sharedSections": ["navigation", "projectEnquiry", "footer"]
+    },
+    {
+      "id": "whatsapp-automation",
+      "name": "WhatsApp Automation",
+      "hero": {
+        "heading": "WhatsApp\nAutomation",
+        "description": "Automate conversations. Connect with customers."
+      },
+      "offerings": [
+        "WhatsApp Business API Setup",
+        "Chatbots & Instant Replies",
+        "Lead Capture & Qualification",
+        "Product Catalog Automation",
+        "Order & Delivery Notifications",
+        "CRM & Workflow Integration",
+        "Opt-In Messaging Campaigns",
+        "Agent Handoff & Reporting"
+      ],
+      "steps": [
+        {
+          "number": "01",
+          "title": "Map conversations",
+          "description": "Identify customer questions, journeys and automation goals."
+        },
+        {
+          "number": "02",
+          "title": "Design the flows",
+          "description": "Plan replies, decision paths and human handoffs."
+        },
+        {
+          "number": "03",
+          "title": "Connect & automate",
+          "description": "Set up WhatsApp workflows and integrate your tools."
+        },
+        {
+          "number": "04",
+          "title": "Test & optimize",
+          "description": "Validate conversations and refine the customer experience."
+        }
+      ],
+      "faq": {
+        "description": "A few things to know before automating your conversations.",
+        "items": [
+          {
+            "question": "What can WhatsApp automation help with?",
+            "answer": "Common workflows include instant replies, lead qualification, product enquiries and order updates. The setup is tailored to your customer journey."
+          },
+          {
+            "question": "Do customers need to opt in to messages?",
+            "answer": "Business-initiated messages require appropriate opt-in and must follow current WhatsApp policies. Approved templates may be required depending on the message type."
+          },
+          {
+            "question": "Can a team member take over from the chatbot?",
+            "answer": "Agent handoff can be included for complex questions or customer requests. Routing rules and the tools your team uses are defined during setup."
+          },
+          {
+            "question": "Can it connect to my CRM, and are there extra fees?",
+            "answer": "CRM and workflow integrations depend on available APIs. Meta, messaging-provider and third-party charges are separate considerations reviewed during scoping."
+          }
+        ]
+      },
+      "sharedSections": ["navigation", "projectEnquiry", "footer"]
+    },
+    {
+      "id": "ui-ux-design",
+      "name": "UI/UX Design",
+      "hero": {
+        "heading": "UI/UX\nDesign",
+        "description": "Intuitive digital experiences, shaped around users."
+      },
+      "offerings": [
+        "User Research & Discovery",
+        "User Journeys & Flow Mapping",
+        "Wireframes & UX Architecture",
+        "Website & Mobile App UI",
+        "Interactive Prototypes",
+        "Reusable Design Systems",
+        "Usability Testing & Refinement",
+        "Developer-Ready Design Handoff"
+      ],
+      "steps": [
+        {
+          "number": "01",
+          "title": "Research & discover",
+          "description": "Understand user needs, business goals and pain points."
+        },
+        {
+          "number": "02",
+          "title": "Map & wireframe",
+          "description": "Define user flows and structure the key screens."
+        },
+        {
+          "number": "03",
+          "title": "Design & prototype",
+          "description": "Craft the visual interface and interactive prototype."
+        },
+        {
+          "number": "04",
+          "title": "Test & hand off",
+          "description": "Validate usability and prepare designs for development."
+        }
+      ],
+      "faq": {
+        "description": "A few things to know before we shape your user experience.",
+        "items": [
+          {
+            "question": "What is included in a UI/UX design project?",
+            "answer": "The scope can include discovery, user flows, wireframes, interface design and prototypes. Deliverables are selected around your product and research needs."
+          },
+          {
+            "question": "Can you improve an existing website or app?",
+            "answer": "An existing experience can be reviewed to identify usability issues. Priority journeys are then redesigned while keeping useful parts of the current product."
+          },
+          {
+            "question": "How is feedback included in the design process?",
+            "answer": "Designs are reviewed at agreed milestones. Stakeholder feedback and, when included in scope, usability testing guide revisions before handoff."
+          },
+          {
+            "question": "What will the development team receive?",
+            "answer": "Handoff can include editable Figma designs, reusable components, assets and interaction guidance. Responsive states and documentation are defined in the scope."
+          }
+        ]
+      },
+      "sharedSections": ["navigation", "projectEnquiry", "footer"]
+    },
+    {
+      "id": "brand-kit",
+      "name": "Brand Kit",
+      "hero": {
+        "heading": "Brand\nKit",
+        "description": "A cohesive visual identity for every brand touchpoint."
+      },
+      "offerings": [
+        "Brand Discovery & Direction",
+        "Logo Design & Variations",
+        "Brand Color Palettes",
+        "Typography & Visual Hierarchy",
+        "Graphic Elements & Patterns",
+        "Business Cards & Stationery",
+        "Social Media Brand Templates",
+        "Brand Guidelines & Asset Kit"
+      ],
+      "steps": [
+        {
+          "number": "01",
+          "title": "Discover the brand",
+          "description": "Explore your values, audience and brand positioning."
+        },
+        {
+          "number": "02",
+          "title": "Shape the identity",
+          "description": "Develop the logo, color palette and typography."
+        },
+        {
+          "number": "03",
+          "title": "Build the brand kit",
+          "description": "Create consistent templates and essential brand assets."
+        },
+        {
+          "number": "04",
+          "title": "Deliver & guide",
+          "description": "Hand over the assets with clear brand usage guidelines."
+        }
+      ],
+      "faq": {
+        "description": "A few things to know before we create your brand kit.",
+        "items": [
+          {
+            "question": "What can a brand kit include?",
+            "answer": "A kit can include logo variations, a color palette, typography, graphic elements and usage guidelines. Templates and stationery are defined in the scope."
+          },
+          {
+            "question": "Can you refresh an existing brand identity?",
+            "answer": "An existing identity can be refined rather than replaced. Brand discovery helps decide which recognizable elements to keep and what needs to change."
+          },
+          {
+            "question": "Which asset formats will I receive?",
+            "answer": "The handoff formats are agreed for your print and digital needs. These may include editable source artwork, SVG, PDF and transparent PNG exports."
+          },
+          {
+            "question": "How will my team use the brand consistently?",
+            "answer": "Brand guidelines explain logo usage, colors, typography and common applications. Agreed templates help your team create consistent day-to-day materials."
+          }
+        ]
+      },
+      "sharedSections": ["navigation", "projectEnquiry", "footer"]
+    },
+    {
+      "id": "social-media-posts-&-managment",
+      "name": "Social Media Posts & Management",
+      "hero": {
+        "heading": "Social Media\n& Graphics",
+        "description": "Content, design and management that connect."
+      },
+      "offerings": [
+        "Social Media Strategy",
+        "Content Calendars & Planning",
+        "Branded Posts & Carousels",
+        "Reels & Story Graphics",
+        "Campaign & Ad Creatives",
+        "Caption Writing & Publishing",
+        "Community Management",
+        "Performance Reports & Insights"
+      ],
+      "steps": [
+        {
+          "number": "01",
+          "title": "Set the strategy",
+          "description": "Define your audience, channels and content goals."
+        },
+        {
+          "number": "02",
+          "title": "Create content",
+          "description": "Design branded graphics and write engaging social copy."
+        },
+        {
+          "number": "03",
+          "title": "Publish & engage",
+          "description": "Schedule posts and connect with your community."
+        },
+        {
+          "number": "04",
+          "title": "Measure & refine",
+          "description": "Review performance and improve the next content cycle."
+        }
+      ],
+      "faq": {
+        "description": "A few things to know before we plan your social content.",
+        "items": [
+          {
+            "question": "What does social media management include?",
+            "answer": "The scope can cover strategy, content planning, branded graphics, captions and publishing. Community management and reporting can also be included."
+          },
+          {
+            "question": "Which platforms and posting frequency are covered?",
+            "answer": "Platforms and publishing frequency are agreed around your audience, goals and available content. The content calendar sets out the planned deliverables."
+          },
+          {
+            "question": "Can I review content before it is published?",
+            "answer": "An approval workflow can be set up so your team reviews planned copy and visuals. Review deadlines and revision rounds are agreed before publishing starts."
+          },
+          {
+            "question": "Are paid ads included, and how are results measured?",
+            "answer": "Ad creative, campaign management and media spend are scoped separately. Reporting can track agreed measures such as reach, engagement, clicks and enquiries."
+          }
+        ]
+      },
+      "sharedSections": ["navigation", "projectEnquiry", "footer"]
+    },
+    {
+      "id": "full-stack-development",
+      "name": "Full Stack Development",
+      "hero": {
+        "heading": "Full Stack\nDevelopment",
+        "description": "Connected front ends, secure APIs and robust back ends."
+      },
+      "offerings": [
+        "End-to-End App Architecture",
+        "Responsive Front-End Builds",
+        "Back-End Services & Logic",
+        "Database Design & Management",
+        "Secure APIs & Integrations",
+        "Authentication & Access Control",
+        "Cloud Deployment & CI/CD",
+        "Testing, Monitoring & Support"
+      ],
+      "steps": [
+        {
+          "number": "01",
+          "title": "Plan the stack",
+          "description": "Define requirements, architecture and the right technology stack."
+        },
+        {
+          "number": "02",
+          "title": "Design the system",
+          "description": "Map user journeys, interfaces and the database structure."
+        },
+        {
+          "number": "03",
+          "title": "Build & integrate",
+          "description": "Develop the front end, APIs and connected back-end services."
+        },
+        {
+          "number": "04",
+          "title": "Test & deploy",
+          "description": "Validate performance, deploy and maintain your product."
+        }
+      ],
+      "faq": {
+        "description": "A few things to know before we build your full stack product.",
+        "items": [
+          {
+            "question": "What does full stack development cover?",
+            "answer": "It connects the user interface, server-side logic, databases and APIs. Architecture, testing and deployment are planned as part of the agreed project scope."
+          },
+          {
+            "question": "Can you work with an existing application?",
+            "answer": "An existing application can be assessed before extending or integrating it. Technical access and a review of the current architecture help define the approach."
+          },
+          {
+            "question": "How do you choose the technology stack?",
+            "answer": "The stack is chosen around product requirements, integrations, expected scale and your team. Long-term maintainability and hosting needs also guide the decision."
+          },
+          {
+            "question": "How are security and deployment handled?",
+            "answer": "Access controls, validation, testing and deployment workflows are designed for the application. Monitoring, backups and ongoing support are agreed during scoping."
+          }
+        ]
+      },
+      "sharedSections": ["navigation", "projectEnquiry", "footer"]
+    },
+{
+  "id": "web-development",
+  "name": "Web\nDevelopment",
+  "nameInferredFromContent": true,
+  "hero": {
+    "heading": "Web\nDevelopment",
+    "description": "Fast, responsive websites built to grow your business."
+  },
+  "offerings": [
+    "Custom Web Applications",
+    "Responsive Web Page",
+    "E-Commerce Solutions",
+    "Landding page design",
+    "UI/UX Redesign & Web Performance",
+    "CMS & Platform Maintenance",
+    "Performance & SEO Optimization ",
+    "Backend & API Integration"
+  ],
+  "steps": [
+    {
+      "number": "01",
+      "title": "Discover & plan",
+      "description": "Understand your goals, audience and project requirements."
+    },
+    {
+      "number": "02",
+      "title": "Design the experience",
+      "description": "Create clear user journeys and a distinctive visual direction."
+    },
+    {
+      "number": "03",
+      "title": "Build & test",
+      "description": "Bring the design to life and check every key interaction."
+    },
+    {
+      "number": "04",
+      "title": "Launch & support",
+      "description": "Go live with confidence and keep your experience improving."
+    }
+  ],
+  "faq": {
+    "description": "A few things to know before we build your website.",
+    "items": [
+      {
+        "question": "What types of websites can you build?",
+        "answer": "Custom web applications, responsive websites, e-commerce stores and landing pages. The right approach depends on your goals, content and integrations."
+      },
+      {
+        "question": "Will my website work on mobile devices?",
+        "answer": "Responsive layouts adapt to mobile, tablet and desktop screens. Testing covers key devices, browsers and the journeys your visitors use most."
+      },
+      {
+        "question": "Can you connect a CMS or payment system?",
+        "answer": "CMS platforms, payment providers and third-party APIs can be included. Compatibility, access and any provider fees are reviewed during scoping."
+      },
+      {
+        "question": "How are timelines and ongoing support planned?",
+        "answer": "Timing depends on page count, features, content and feedback. Launch milestones and any maintenance or support arrangements are agreed in the project scope."
+      }
+    ]
+  },
+  "sharedSections": ["footer"],
+  "footerOverrides": {
+    "groups": [
+      {
+        "heading": "Inner Pages",
+        "items": [
+          "Services Details",
+          "Showcase Details",
+          "About Details",
+          "All Rewiews",
+          "Termsn & Conditions"
+        ]
+      }
+    ]
+  }
+}
+  ]
+}
