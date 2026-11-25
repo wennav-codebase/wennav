@@ -1,6 +1,12 @@
 "use client";
 
-import { useEffect, useRef, useState, type MouseEvent } from "react";
+import {
+  useEffect,
+  useRef,
+  useState,
+  type MouseEvent,
+  type WheelEvent,
+} from "react";
 import Link from "next/link";
 import {
   AnimatePresence,
@@ -78,6 +84,7 @@ export default function ProjectShowcase() {
   const isInView = useInView(sectionRef, { once: true, amount: 0.35 });
   const [isHovered, setIsHovered] = useState<boolean>(false);
   const [activeIndex, setActiveIndex] = useState<number>(0);
+  const [isPinned, setIsPinned] = useState<boolean>(false);
 
   // Lazy init — avoids a false→true flash on mobile that started auto-play for 1 frame.
   const [isMobile, setIsMobile] = useState<boolean>(() =>
@@ -89,6 +96,8 @@ export default function ProjectShowcase() {
   const activeIndexRef = useRef<number>(0);
   const hasPlayedOnce = useRef<boolean>(false);
   const total = PROJECTS.length;
+  const scrollAccumulator = useRef<number>(0);
+  const SCROLL_THRESHOLD = 50;
 
   useEffect(() => {
     activeIndexRef.current = activeIndex;
@@ -102,6 +111,40 @@ export default function ProjectShowcase() {
     mq.addEventListener("change", handler);
     return () => mq.removeEventListener("change", handler);
   }, []);
+
+  // Handle scroll-based project navigation (parallax effect)
+  const handleWheel = (e: WheelEvent<HTMLDivElement>) => {
+    if (!isInView || isMobile) return;
+
+    e.preventDefault();
+    scrollAccumulator.current += e.deltaY;
+
+    if (Math.abs(scrollAccumulator.current) >= SCROLL_THRESHOLD) {
+      const direction = scrollAccumulator.current > 0 ? 1 : -1;
+      scrollAccumulator.current = 0;
+
+      setActiveIndex((prev) => {
+        const newIndex = Math.max(1, Math.min(total, prev + direction));
+        // Unpin when all projects are shown and user scrolls down
+        if (newIndex === total && direction === 1) {
+          setIsPinned(false);
+        }
+        return newIndex;
+      });
+    }
+  };
+
+  // Pin section when in view and not on mobile
+  useEffect(() => {
+    if (!isInView || isMobile) {
+      setIsPinned(false);
+      return;
+    }
+
+    if (activeIndex < total) {
+      setIsPinned(true);
+    }
+  }, [isInView, activeIndex, total, isMobile]);
 
   // Desktop: auto-play + hover reverse. Mobile: pin at card 1, no timer.
   useEffect(() => {
@@ -156,9 +199,12 @@ export default function ProjectShowcase() {
       onMouseLeave={() => {
         if (!isMobile) setIsHovered(false);
       }}
-      className="relative h-screen w-full overflow-hidden"
+      onWheel={handleWheel}
+      className={`relative w-full overflow-hidden transition-all duration-300 ${
+        isPinned ? "fixed inset-0 z-50 h-screen" : "h-screen"
+      }`}
     >
-      <div className="relative h-full w-full -left-10">
+      <div className="relative h-full w-full left-0 lg:-left-10">
         {PROJECTS.map((project, i) => (
           <ProjectCard
             key={project.id}

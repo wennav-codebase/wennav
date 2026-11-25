@@ -31,7 +31,8 @@ export default function Footer() {
   if (isLoading) return null;
   
   return (
-    <footer className="bg-primary text-secondary relative overflow-hidden">
+    <footer className="bg-primary text-secondary relative overflow-hidden border-t border-borderColor/10">
+      <div className="h-90 w-90 bg-primaryLight/60 absolute top-0 -left-10 z-10 rounded-full blur-3xl"></div>
       <div className="mx-auto max-w-7xl px-6 py-20 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-y-8 lg:gap-y-12 gap-x-8 lg:gap-x-32  ">
           {/* Left: Mail */}
@@ -43,7 +44,7 @@ export default function Footer() {
               <input
                 type="email"
                 placeholder="Your mail"
-                className="flex-1 px-4 py-2.5 rounded-lg bg-primary/30 border border-secondary/20 text-secondary placeholder-secondary/50 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-colors"
+                className="flex-1 px-4 py-2.5 rounded-lg bg-secondary/10 border border-secondary/50 placeholder-secondary/50 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-colors"
               />
               <button
                 type="submit"
@@ -116,7 +117,7 @@ export default function Footer() {
 
         {/* Bottom watermark */}
         <div className="mt-16 relative">
-          <h1 className="text-[10rem] font-black uppercase text-primary/10 select-none pointer-events-none absolute bottom-0 left-1/2 -translate-x-1/2 whitespace-nowrap">
+          <h1 className="text-9xl font-black uppercase text-secondary/10 select-none pointer-events-none absolute -bottom-20 left-1/2 -translate-x-1/2 whitespace-nowrap ">
             wennav
           </h1>
         </div>

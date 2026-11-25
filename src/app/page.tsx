@@ -9,6 +9,7 @@ import ProjectShowcase from "@/components/ProjectShowcase";
 import FallingCapsules from "@/components/FallingCapsules";
 import CrossingMarquee from "@/components/CrossingMarquee";
 import TestimonialCarousel from "@/components/TestimonialCarousel";
+
 export default function Home() {
   const services: { icon: string; heading: string; description: string }[] = [
     {
@@ -59,7 +60,14 @@ export default function Home() {
         "End-to-end web architectures, secure APIs, and database engines.",
     },
   ];
-  const testimonials: { name: string; description: string; star: number; clientPhoto: string; serviceTaken: string }[] = [
+
+  const testimonials: {
+    name: string;
+    description: string;
+    star: number;
+    clientPhoto: string;
+    serviceTaken: string;
+  }[] = [
     {
       name: "Sarah Mitchell",
       description:
@@ -141,32 +149,33 @@ export default function Home() {
       serviceTaken: "Brand Kit",
     },
   ];
+
   return (
     <LoaderWrapper>
       <div className="flex flex-col max-w-screen overflow-x-hidden">
         {/* Hero Section */}
-        <section className="hero-bg flex flex-col items-center pt-40 pb-10  relative">
+        <section className="hero-bg flex flex-col items-center pt-36 lg:pt-50 pb-10 relative">
           <Image
             src="/hero/home-bg.jpeg"
             fill
             alt="hero image background"
             className="absolute inset-0 z-0 object-cover opacity-20"
+            decoding="async"
           />
-
           <div className="relative z-10 flex flex-col items-center gap-y-6 w-full">
-            <h1 className="font-bold text-6xl text-secondary text-center font-heading leading-16">
+            <h1 className="font-bold text-4xl lg:text-6xl text-secondary text-center px-5 lg:px-0 font-heading leading-12 lg:leading-16">
               Transforming Ideas Into{" "}
-              <span className="text-accent">
-                <br />
+              <span className="text-accent inline">
+                <br className="hidden " />
                 Scalable
-              </span>
+              </span>{" "}
               Technology
             </h1>
-            <p className="text-secondary text-center text-xl font-semibold">
+            <p className="text-secondary text-center px-5 lg:px-0 text-xl font-semibold">
               Your Problem's Solution Is Almost Here!
             </p>
             {/* Button Container */}
-            <div className="flex gap-x-4">
+            <div className="flex flex-wrap justify-center gap-x-4 gap-y-3">
               <CtaPrimary>Get Started</CtaPrimary>
               <CtaSecondary>About Wennav</CtaSecondary>
             </div>
@@ -174,23 +183,26 @@ export default function Home() {
             <HeroCards />
           </div>
         </section>
+
         {/* Hero Marquess */}
         <HeroMarquee />
+
         {/* Service Section */}
-        <section className="bg-primary relative flex flex-col items-center py-20 gap-y-10 justify-center z-30 overflow-hidden ">
-          <div className="h-120 w-120 bg-primaryLight/60  absolute bottom-0 -right-10 z-10 rounded-full translate-y-[25%] blur-3xl"></div>
-          <h1 className="text-secondary text-5xl font-heading font-bold uppercase ">
+        <section className="bg-primary relative flex flex-col items-center py-20 gap-y-10 justify-center z-30 overflow-hidden">
+          <div className="h-120 w-120 bg-primaryLight/60 absolute bottom-0 -right-10 z-10 rounded-full translate-y-[25%] blur-3xl"></div>
+          <h1 className="text-secondary text-3xl sm:text-4xl lg:text-5xl text-center px-5 lg:px-0 font-heading font-bold uppercase">
             Services & Solutions
           </h1>
           {/* Services Cards */}
-          <div className="grid grid-cols-1 lg:grid-cols-4 gap-10 py-5 w-full max-w-7xl justify-center mx-10 relative z-20 px-10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-10 py-5 w-full max-w-7xl justify-center mx-10 relative z-20 px-5 lg:px-10">
             {services.map((service, index) => (
               <ServiceCard key={index} service={service} index={index} />
             ))}
           </div>
         </section>
+
         {/* Our Best Work */}
-        <section className="grid grid-cols-1 lg:grid-cols-2 bg-linear-to-b from-primary from-50% to-primaryLight py-10 px-10 items-center relative overflow-hidden isolate  ">
+        <section className="grid grid-cols-1 lg:grid-cols-2 gap-y-10 bg-linear-to-b from-primary from-50% to-primaryLight py-10 px-5 lg:px-10 items-center relative overflow-hidden isolate justify-center">
           <Image
             src="/backgrounds/service.svg"
             fill
@@ -198,14 +210,14 @@ export default function Home() {
             className="absolute inset-0 z-0 object-cover"
           />
           {/* Left */}
-          <div className="relative z-10 gap-y-15 flex flex-col items-start">
+          <div className="relative z-10 gap-y-8 lg:gap-y-15 flex flex-col items-start">
             <div className="flex flex-col gap-y-2">
-              <h1 className="text-secondary font-bold text-5xl text-heading">
+              <h1 className="text-secondary font-bold text-4xl lg:text-5xl text-heading">
                 Our Best <span className="text-accent">Work</span>
               </h1>
               <p className="text-secondary text-base">
                 A curated collection of digital platforms, high-performance web{" "}
-                <br />
+                <br className="hidden lg:block" />
                 applications, and custom ecosystems built for growing brands.
               </p>
             </div>
@@ -217,25 +229,27 @@ export default function Home() {
             <ProjectShowcase />
           </div>
         </section>
+
         {/* About Us */}
         <section className="flex flex-col bg-primary relative z-20 overflow-hidden">
           {/* Purple Card */}
-          <div className="flex flex-col w-[95%] px-10 py-5 gap-y-10 mt-10 relative z-30 bg-primary rounded-r-2xl shadow-xl ">
-            <h1 className="text-accent text-3xl font-heading font-bold uppercase">
-              At wennav, we believe technology <br /> isn’t just about code—it’s{" "}
-              <br />
+          <div className="flex flex-col w-[95%] px-5 lg:px-10 py-5 gap-y-10 mt-10 relative z-30 bg-primary rounded-r-2xl shadow-xl">
+            <h1 className="text-accent text-2xl lg:text-3xl font-heading font-bold uppercase">
+              At wennav, we believe technology{" "}
+              <br className="hidden lg:block" />
+              isn’t just about code—it’s <br className="hidden lg:block" />
               about connecting.
             </h1>
-            <div className="grid grid-cols-1 lg:grid-cols-2 items-start">
+            <div className="grid grid-cols-1 lg:grid-cols-2 items-start gap-y-8">
               <Image
                 src="/about-wennav.png"
                 width={350}
                 height={350}
                 alt="About Us"
-                className="-ml-5"
+                className="lg:-ml-5"
               />
               <div className="flex flex-col items-start gap-y-8">
-                <h3 className="text-heading text-secondary font-heading font-bold text-xl ">
+                <h3 className="text-heading text-secondary font-heading font-bold text-xl">
                   About Wennav
                 </h3>
                 <p className="text-base text-secondary">
@@ -248,9 +262,10 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div className="h-120 w-120 bg-primaryLight/60  absolute bottom-0 -right-10 z-10 rounded-full translate-y-[25%] blur-3xl"></div>
+          <div className="h-120 w-120 bg-primaryLight/60 absolute bottom-0 -right-10 z-10 rounded-full translate-y-[25%] blur-3xl"></div>
           <FallingCapsules />
         </section>
+
         {/* Testimonials */}
         <section className="bg-primary relative">
           <Image
@@ -260,9 +275,11 @@ export default function Home() {
             alt="Testimonial"
           />
           <CrossingMarquee />
-          <h1 className="text-secondary font-bold text-5xl text-heading text-center mt-10 ">
+          <h1 className="text-secondary font-bold text-3xl sm:text-4xl lg:text-5xl text-heading text-center mt-10 px-5 lg:px-0">
             WHAT
+            <wbr />
             <span className="text-accent mx-2">CLIENTS</span>
+            <wbr />
             SAYS ABOUT US
           </h1>
           <TestimonialCarousel testimonials={testimonials} />
